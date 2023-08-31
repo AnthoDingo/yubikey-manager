@@ -516,7 +516,7 @@ def yubiotp(
     "--length",
     metavar="LENGTH",
     type=click.IntRange(1, 38),
-    default=38,
+    default=64,
     show_default=True,
     help="length of generated password",
 )
@@ -548,8 +548,8 @@ def static(ctx, slot, password, generate, length, keyboard_layout, no_enter, for
 
     session = _get_session(ctx)
 
-    if password and len(password) > 38:
-        ctx.fail("Password too long (maximum length is 38 characters).")
+    if password and len(password) > 64:
+        ctx.fail("Password too long (maximum length is 64 characters).")
     if generate and not length:
         ctx.fail("Provide a length for the generated password.")
 
