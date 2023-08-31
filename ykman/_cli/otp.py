@@ -166,8 +166,8 @@ def otp(ctx, access_code):
       $ ykman otp yubiotp 1 --serial-public-id
 
     \b
-      Program a random 38 characters long static password to slot 2:
-      $ ykman otp static --generate 2 --length 38
+      Program a random 64 characters long static password to slot 2:
+      $ ykman otp static --generate 2 --length 64
 
     \b
       Remove a currently set access code from slot 2):
@@ -515,7 +515,7 @@ def yubiotp(
     "-l",
     "--length",
     metavar="LENGTH",
-    type=click.IntRange(1, 38),
+    type=click.IntRange(1, 64),
     default=64,
     show_default=True,
     help="length of generated password",
